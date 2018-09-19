@@ -2,6 +2,22 @@
 title: "2018-09-19"
 output: html_notebook
 ---
+```{r}
+a<-5
+```
+
+```{r}
+aVector<-c(5,6,7)
+```
+
+```{r}
+b<-"你好" #note
+```
+
+```{r}
+bVector<-c("你好","How are you?")
+```
+
 
 This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
 
