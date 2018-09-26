@@ -31,7 +31,47 @@ num2<-2.121
 round(num1,digits = 2)->roundNum1
 ```
 
+```{r}
+library(readr)
+student <- read_csv("https://raw.githubusercontent.com/tpemartin/course-107-1-programming-for-data-science/master/data/student.csv")
+library(dplyr)
+library(magrittr)
+student %<>% mutate(
+  身高級距=cut(身高,c(0,150,155,160,165,170,175,180,185,200)))
+```
+```{r}
+student$出生地
+as.factor(student$出生地) -> student$出生地
+```
+```{r}
+levels(student$出生地)
+table(student$出生地)
+```
+```{r}
+as.factor(student$入學年) -> student$入學年
+as.factor(student$性別) -> student$性別
+```
 
+```{r}
+factor(student$身高級距,
+       levels=c("(0,150]","(150,155]", "(155,160]", "(160,165]" ,"(165,170]", "(170,175]" ,"(175,180]" ,"(180,185]", "(185,200]"),
+       ordered=TRUE) -> student$身高級距
+```
+```{r}
+heightLevels <- c("(0,150]","(150,155]", "(155,160]", "(160,165]" ,"(165,170]", "(170,175]" ,"(175,180]" ,"(180,185]", "(185,200]")
+factor(student$身高級距,
+       levels=heightLevels,
+       ordered=TRUE) -> student$身高級距
+```
+
+```{r}
+a<-"2017-01-31"
+```
+```{r}
+library(lubridate)
+a <- ymd("2017-01-31") 
+b <- ymd_hms("2017-01-31 20:11:59")
+```
 
 This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
 
