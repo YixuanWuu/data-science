@@ -154,11 +154,6 @@ rownames(StuDF)
 ```
 
 ```{r}
-(StuDF$score >= 80)
-(StuDF$name=="小新")
-```
-
-```{r}
 StuDF[1,2]
 StuDF[,2]
 StuDF[1,]
@@ -167,10 +162,52 @@ StuDF[c(1,4),c(2,3)]
 StuDF[-c(1,4),]
 ```
 
-```{r}
+```{r}4/gQBgrqcsAtXDYm1m28fq8LKYxX3yC9n0f1RrW51_8j0TM_vWbPMczS0
 StuDF[c(T,F,F,F,F),c(F,T,F)]
 StuDF[c(T,F,F,T,F),]
 ```
+```{r}
+(StuDF$score >= 80)
+(StuDF$name == "小新")
+```
+```{r}
+which(StuDF$score >= 80)
+which(StuDF$name == "小新")
+```
+
+```{r}
+(classSurvey$性別 == "男")
+
+(classSurvey$本學期學分數 > 20)
+
+(classSurvey$性別 == "男" | 
+    classSurvey$本學期學分數 > 20)
+```
+```{r}
+classSurvey[(classSurvey$性別 == "男" & 
+    classSurvey$本學期學分數 > 26) ,3]
+```
+```{r}
+StuDF$StuID
+StuDF[,c("StuID")]
+StuDF$name
+StuDF[,c("name")]
+
+StuDF[,c("StuID","name")]
+
+## 無法用$一次取兩個元素
+# StuDF$c("StuID","name")
+```
+
+```{r}
+StuDF[c(1,4),c(2)]
+StuDF[,c(2)][c(1,4)]
+
+## the second one is equivalent to 
+StuDF[,c(2)] -> aa
+aa[c(1,4)] 
+```
+
 
 
 Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
