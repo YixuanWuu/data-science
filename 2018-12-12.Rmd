@@ -163,7 +163,6 @@ for(i in c(1:18)){
 
 #由於index i是跟著storageLocations的個數走, 可以用seq_along(storageLocations)取代c(1:18)
 ```
-
 ```{r}
 libraryData$學院 %>% as.factor %>% levels -> college
 
@@ -182,8 +181,14 @@ libraryData$學院 %>% as.factor %>% levels -> college
  
  }
 ```
-```{r}
 
+```{r}
+libraryData %>%
+  group_by(書籍館藏地) %>%
+  summarise(
+    borrowCount=length(學號)
+  ) -> result
+result
 ```
 
 
