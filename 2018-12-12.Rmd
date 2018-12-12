@@ -1,5 +1,5 @@
 ---
-title: "2018-12-05"
+title: "2018-12-12"
 output: html_notebook
 ---
 
@@ -117,9 +117,77 @@ libraryData %>%
  libraryData$書籍出版日期[logiIndex] <-  # 選出為9999的樣本
    NA # 將它換成NA
 ```
+
+```{r}
+libraryData$書籍館藏地 %>% as.factor %>% levels -> storageLocations
+storageLocations
+```
+```{r}
+i<-1
+# 1
+storageLocation_i <- storageLocations[i] 
+# 2
+numericalIndexForSubsample<-which(libraryData$書籍館藏地==storageLocation_i)
+subsample_i <- libraryData[numericalIndexForSubsample,]
+# 3
+borrowCount_i <- nrow(subsample_i)
+```
+```{r}
+# 0
+allBorrowCount <- vector("numeric",18)
+i<-1
+  # 1
+  storageLocation_i <- storageLocations[i] 
+  # 2
+  numericalIndexForSubsample<-which(libraryData$書籍館藏地==storageLocation_i)
+  subsample_i <- libraryData[numericalIndexForSubsample,]
+  # 3
+  borrowCount_i <- nrow(subsample_i)
+  # 4
+  allBorrowCount[[i]]<-borrowCount_i
+```
+```{r}
+# 0
+allBorrowCount <- vector("numeric",18)
+for(i in c(1:18)){
+  # 1
+  storageLocation_i <- storageLocations[i] 
+  # 2
+  numericalIndexForSubsample<-which(libraryData$書籍館藏地==storageLocation_i)
+  subsample_i <- libraryData[numericalIndexForSubsample,]
+  # 3
+  borrowCount_i <- nrow(subsample_i)
+  # 4
+  allBorrowCount[[i]]<-borrowCount_i  
+}
+
+#由於index i是跟著storageLocations的個數走, 可以用seq_along(storageLocations)取代c(1:18)
+```
+
+```{r}
+libraryData$學院 %>% as.factor %>% levels -> college
+
+ #0 
+ collegeBorrowCount <- vector("numeric",length(college))
+ for(i in c(1:length(college))){
+ #1
+ college_i <- college[i]
+ #2
+ numericalIndexForSubsample<-which(libraryData$學院 == college_i)
+ collegesubsample_i <- libraryData[numericalIndexForSubsample,]
+ #3
+ collegeBorrowCount_i <- nrow(collegesubsample_i)
+ #4
+ collegeBorrowCount[[i]]<-collegeBorrowCount_i 
+ 
+ }
+```
 ```{r}
 
 ```
+
+
+
 
 
 
