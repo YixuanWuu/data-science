@@ -495,8 +495,33 @@ for(i in c(1:18)){
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYTwtYygxOjEwKVxudHlwZW9mKGEpXG5gYGAifQ== -->
+<pre class="r"><code>a&lt;-c(1:10)
+typeof(a)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiaW50ZWdlclwiXG4ifQ== -->
+<pre><code>[1] &quot;integer&quot;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYjwtbGlzdChcImFcIixcImJcIiwxOjEwKVxudHlwZW9mKGIpXG5gYGAifQ== -->
+<pre class="r"><code>b&lt;-list(&quot;a&quot;,&quot;b&quot;,1:10)
+typeof(b)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwibGlzdFwiXG4ifQ== -->
+<pre><code>[1] &quot;list&quot;</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYjI8LWxpc3QoXCJhXCIsXCJiXCIsMToxMCxcbiAgICAgICAgbGlzdChcbiAgICAgICAgICBcIk1yIFNtaXRoXCIsXG4gICAgICAgICAgZGF0YS5mcmFtZShcbiAgICAgICAgICAgIHYxPWMoMSwyKSxcbiAgICAgICAgICAgIHYyPWMoXCJhYVwiLFwiYmJcIiksXG4gICAgICAgICAgICBzdHJpbmdzQXNGYWN0b3JzID0gRlxuICAgICAgICAgIClcbiAgICAgICAgKSlcbmBgYCJ9 -->
+<pre class="r"><code>b2&lt;-list(&quot;a&quot;,&quot;b&quot;,1:10,
+        list(
+          &quot;Mr Smith&quot;,
+          data.frame(
+            v1=c(1,2),
+            v2=c(&quot;aa&quot;,&quot;bb&quot;),
+            stringsAsFactors = F
+          )
+        ))</code></pre>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-chunk-end -->
